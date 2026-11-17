@@ -54,3 +54,7 @@ tagged so that blue squares usually show as red.
 - Satellite: Google, through Airbnb's own map
 
 These are free community tile servers. The extension only fetches tiles for the map area you're looking at.
+
+## License
+
+Code: [MIT](LICENSE). Map tiles are not part of this repo; they are loaded from OpenSnowMap and OpenTopoMap under their own terms (see Data sources above).
