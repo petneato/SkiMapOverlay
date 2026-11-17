@@ -1,0 +1,146 @@
+{
+  "manifest_version": 3,
+  "name": "Ski Map Overlay",
+  "version": "1.1.0",
+  "description": "Overlays ski runs and lifts on Airbnb and Google Maps, so you can see how close a stay is to the slopes.",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Ski Map Overlay",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "commands": {
+    "toggle-overlay": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Turn the ski map overlay on or off"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.airbnb.com/*",
+        "https://*.airbnb.co.uk/*",
+        "https://*.airbnb.ca/*",
+        "https://*.airbnb.com.au/*",
+        "https://*.airbnb.co.nz/*",
+        "https://*.airbnb.ie/*",
+        "https://*.airbnb.fr/*",
+        "https://*.airbnb.de/*",
+        "https://*.airbnb.at/*",
+        "https://*.airbnb.ch/*",
+        "https://*.airbnb.it/*",
+        "https://*.airbnb.es/*",
+        "https://*.airbnb.pt/*",
+        "https://*.airbnb.nl/*",
+        "https://*.airbnb.be/*",
+        "https://*.airbnb.se/*",
+        "https://*.airbnb.no/*",
+        "https://*.airbnb.dk/*",
+        "https://*.airbnb.fi/*",
+        "https://*.airbnb.pl/*",
+        "https://*.airbnb.cz/*",
+        "https://*.airbnb.jp/*",
+        "https://*.airbnb.com.ar/*",
+        "https://*.airbnb.cl/*",
+        "https://*.airbnb.mx/*",
+        "https://*.airbnb.com.br/*"
+      ],
+      "js": [
+        "src/layers.js",
+        "src/page-hook.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://*.airbnb.com/*",
+        "https://*.airbnb.co.uk/*",
+        "https://*.airbnb.ca/*",
+        "https://*.airbnb.com.au/*",
+        "https://*.airbnb.co.nz/*",
+        "https://*.airbnb.ie/*",
+        "https://*.airbnb.fr/*",
+        "https://*.airbnb.de/*",
+        "https://*.airbnb.at/*",
+        "https://*.airbnb.ch/*",
+        "https://*.airbnb.it/*",
+        "https://*.airbnb.es/*",
+        "https://*.airbnb.pt/*",
+        "https://*.airbnb.nl/*",
+        "https://*.airbnb.be/*",
+        "https://*.airbnb.se/*",
+        "https://*.airbnb.no/*",
+        "https://*.airbnb.dk/*",
+        "https://*.airbnb.fi/*",
+        "https://*.airbnb.pl/*",
+        "https://*.airbnb.cz/*",
+        "https://*.airbnb.jp/*",
+        "https://*.airbnb.com.ar/*",
+        "https://*.airbnb.cl/*",
+        "https://*.airbnb.mx/*",
+        "https://*.airbnb.com.br/*"
+      ],
+      "js": [
+        "src/defaults.js",
+        "src/bridge.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.google.com/maps*",
+        "https://www.google.co.uk/maps*",
+        "https://www.google.ca/maps*",
+        "https://www.google.com.au/maps*",
+        "https://www.google.co.nz/maps*",
+        "https://www.google.ie/maps*",
+        "https://www.google.fr/maps*",
+        "https://www.google.de/maps*",
+        "https://www.google.at/maps*",
+        "https://www.google.ch/maps*",
+        "https://www.google.it/maps*",
+        "https://www.google.es/maps*",
+        "https://www.google.pt/maps*",
+        "https://www.google.nl/maps*",
+        "https://www.google.be/maps*",
+        "https://www.google.se/maps*",
+        "https://www.google.no/maps*",
+        "https://www.google.dk/maps*",
+        "https://www.google.fi/maps*",
+        "https://www.google.pl/maps*",
+        "https://www.google.cz/maps*",
+        "https://www.google.co.jp/maps*",
+        "https://www.google.com.ar/maps*",
+        "https://www.google.cl/maps*",
+        "https://www.google.com.mx/maps*",
+        "https://www.google.com.br/maps*",
+        "https://maps.google.com/*"
+      ],
+      "js": [
+        "src/defaults.js",
+        "src/layers.js",
+        "src/gmaps.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

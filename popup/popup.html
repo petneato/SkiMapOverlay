@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ski Map Overlay</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+      <img src="../icons/icon-32.png" alt="" width="20" height="20">
+      <span>Ski Map Overlay</span>
+    </div>
+    <label class="switch" title="Turn the overlay on or off (Alt+Shift+S)">
+      <input type="checkbox" id="enabled" aria-label="Overlay on">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main id="controls">
+    <section class="sites">
+      <span class="sites-label">Show on</span>
+      <label class="check"><input type="checkbox" id="airbnb"> Airbnb</label>
+      <label class="check"><input type="checkbox" id="gmaps"> Google Maps</label>
+    </section>
+    <section class="layer">
+      <label class="check"><input type="checkbox" id="pistes"> Ski runs &amp; lifts</label>
+      <input type="range" id="pistesOpacity" min="0.2" max="1" step="0.05" aria-label="Ski runs opacity">
+    </section>
+    <section class="layer">
+      <label class="check"><input type="checkbox" id="terrain"> Topo contours</label>
+      <input type="range" id="terrainOpacity" min="0.1" max="1" step="0.05" aria-label="Topo opacity">
+    </section>
+    <section class="layer">
+      <label class="check"><input type="checkbox" id="satellite"> Satellite base map <span class="hint">Airbnb</span></label>
+    </section>
+
+    <section class="legend">
+      <div class="legend-title">Run difficulty</div>
+      <ul>
+        <li><i style="background:#2ea043"></i>Novice</li>
+        <li><i style="background:#2b59d6"></i>Easy</li>
+        <li><i style="background:#e5484d"></i>Intermediate</li>
+        <li><i style="background:#111"></i>Advanced</li>
+        <li><i class="lift"></i>Lift</li>
+      </ul>
+      <p class="note">European colors. North American blue squares usually show red, black diamonds black.</p>
+    </section>
+  </main>
+
+  <footer>
+    Zoom in near a resort to see runs. Toggle with the <b>⛷ Ski map</b> button on the map or
+    <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>. On Google Maps, use its own Layers button for satellite.
+    <div class="attr">Runs © <a href="https://www.opensnowmap.org" target="_blank" rel="noopener">OpenSnowMap</a> ·
+      Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> ·
+      Topo © <a href="https://opentopomap.org" target="_blank" rel="noopener">OpenTopoMap</a></div>
+  </footer>
+
+  <script src="../src/defaults.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
